@@ -3,6 +3,6 @@ import { postProfile } from "../controllers/profile.js";
 
 const profileRouter = express.Router();
 
-profileRouter.post("/", postProfile);
+profileRouter.post("api/images", postProfile);
 
 export default profileRouter;   

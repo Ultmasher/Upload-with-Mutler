@@ -8,8 +8,12 @@ const multer = require('multer');
 const path = require('path');
 const app = express();
 const port = 3000;
+const upload = multer({dest:upload});
 
-app.post('/upload-profile-pic', upload.single('profile_pic'), (req, res) => {
+app.post('/api/images', upload.single('image'), (req, res) => {
+    const imageName = req.filename
+    const description = req.body.description
+    
     if (!req.file) {
         return res.status(400).send('No file uploaded.');
     }
@@ -21,5 +25,5 @@ app.post('/upload-profile-pic', upload.single('profile_pic'), (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log('Server started on port ${port}');
+    console.log('Server started on port 3000');
 });
